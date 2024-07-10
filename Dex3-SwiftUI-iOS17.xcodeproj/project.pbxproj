@@ -57,9 +57,9 @@
 			children = (
 				0DD85F8B2C3EEF40007ECFC6 /* Dex3_SwiftUI_iOS17App.swift */,
 				0DD85F8D2C3EEF40007ECFC6 /* ContentView.swift */,
-				0DD85F8F2C3EEF41007ECFC6 /* Assets.xcassets */,
 				0DD85F942C3EEF41007ECFC6 /* Persistence.swift */,
 				0DD85F962C3EEF41007ECFC6 /* Dex3_SwiftUI_iOS17.xcdatamodeld */,
+				0DD85F8F2C3EEF41007ECFC6 /* Assets.xcassets */,
 				0DD85F912C3EEF41007ECFC6 /* Preview Content */,
 			);
 			path = "Dex3-SwiftUI-iOS17";
