@@ -8,13 +8,14 @@
 import Foundation
 
 struct FetchController {
-    //enum for errors 
+    //enum for errors
     enum NetworkError: Error {
         case badURL, badResponse, badData
     }
     
     private let baseURL = URL(string: "https://pokeapi.co/api/v2/pokemon/")!
     
+    //fn to fetch all pokemon data 
     func fetchAllPokemon() async throws -> [TempPokemon] {
         //var to store received and then decoded data
         var allPokemon: [TempPokemon] = []

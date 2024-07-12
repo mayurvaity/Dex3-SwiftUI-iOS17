@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0D95D4AD2C4053E700CFDBBE /* FetchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D95D4AC2C4053E700CFDBBE /* FetchController.swift */; };
 		0D97C33B2C40354700C9C3FF /* TempPokemon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D97C33A2C40354700C9C3FF /* TempPokemon.swift */; };
+		0D9A73382C41C9EF00143454 /* PokemonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D9A73372C41C9EF00143454 /* PokemonViewModel.swift */; };
 		0DD85F8C2C3EEF40007ECFC6 /* Dex3_SwiftUI_iOS17App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DD85F8B2C3EEF40007ECFC6 /* Dex3_SwiftUI_iOS17App.swift */; };
 		0DD85F8E2C3EEF40007ECFC6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DD85F8D2C3EEF40007ECFC6 /* ContentView.swift */; };
 		0DD85F902C3EEF41007ECFC6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0DD85F8F2C3EEF41007ECFC6 /* Assets.xcassets */; };
@@ -20,6 +21,7 @@
 /* Begin PBXFileReference section */
 		0D95D4AC2C4053E700CFDBBE /* FetchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchController.swift; sourceTree = "<group>"; };
 		0D97C33A2C40354700C9C3FF /* TempPokemon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempPokemon.swift; sourceTree = "<group>"; };
+		0D9A73372C41C9EF00143454 /* PokemonViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonViewModel.swift; sourceTree = "<group>"; };
 		0DD85F882C3EEF40007ECFC6 /* Dex3-SwiftUI-iOS17.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Dex3-SwiftUI-iOS17.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0DD85F8B2C3EEF40007ECFC6 /* Dex3_SwiftUI_iOS17App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dex3_SwiftUI_iOS17App.swift; sourceTree = "<group>"; };
 		0DD85F8D2C3EEF40007ECFC6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -63,6 +65,7 @@
 				0DD85F8D2C3EEF40007ECFC6 /* ContentView.swift */,
 				0D97C33A2C40354700C9C3FF /* TempPokemon.swift */,
 				0D95D4AC2C4053E700CFDBBE /* FetchController.swift */,
+				0D9A73372C41C9EF00143454 /* PokemonViewModel.swift */,
 				0DD85F942C3EEF41007ECFC6 /* Persistence.swift */,
 				0DD85F962C3EEF41007ECFC6 /* Dex3_SwiftUI_iOS17.xcdatamodeld */,
 				0DD85F8F2C3EEF41007ECFC6 /* Assets.xcassets */,
@@ -152,6 +155,7 @@
 				0DD85F952C3EEF41007ECFC6 /* Persistence.swift in Sources */,
 				0DD85F8E2C3EEF40007ECFC6 /* ContentView.swift in Sources */,
 				0D95D4AD2C4053E700CFDBBE /* FetchController.swift in Sources */,
+				0D9A73382C41C9EF00143454 /* PokemonViewModel.swift in Sources */,
 				0D97C33B2C40354700C9C3FF /* TempPokemon.swift in Sources */,
 				0DD85F8C2C3EEF40007ECFC6 /* Dex3_SwiftUI_iOS17App.swift in Sources */,
 				0DD85F982C3EEF41007ECFC6 /* Dex3_SwiftUI_iOS17.xcdatamodeld in Sources */,
