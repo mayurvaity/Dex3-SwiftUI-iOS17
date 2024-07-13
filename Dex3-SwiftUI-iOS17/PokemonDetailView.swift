@@ -20,7 +20,7 @@ struct PokemonDetailView: View {
             //for pokemon image and bg
             ZStack {
                 //background image
-                Image(.normalgrasselectricpoisonfairy)
+                Image(pokemon.background)
                     .resizable()
                     .scaledToFit()
                     .shadow(color: .black, radius: 6)

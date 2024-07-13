@@ -115,7 +115,7 @@ struct TempPokemon: Codable {
         
         //MARK: - 4
         //creating "sprites" container
-        var spritesContainer = try container.nestedContainer(keyedBy: PokemonKeys.SpriteKeys.self, forKey: .sprites)
+        let spritesContainer = try container.nestedContainer(keyedBy: PokemonKeys.SpriteKeys.self, forKey: .sprites)
         
         //getting values of 2 attributes within "sprites" container
         sprite = try spritesContainer.decode(URL.self, forKey: .sprite)
