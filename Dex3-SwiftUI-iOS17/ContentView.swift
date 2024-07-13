@@ -20,7 +20,7 @@ struct ContentView: View {
         NavigationStack {
             List(pokedex) { pokemon in
                 //for pokedex row
-                //value - will be used later in navigationDestination
+                //value - will be used later in navigationDestination, it will be stored in Environment obj for use in Detail view, rather than passing directly to the detail view 
                 NavigationLink(value: pokemon) {
                     //pokemon image
                     AsyncImage(url: pokemon.sprite) { image in
