@@ -17,16 +17,39 @@ struct ContentView: View {
     private var pokedex: FetchedResults<Pokemon>
     
     var body: some View {
-        NavigationView {
-            List {
-                ForEach(pokedex) { pokemon in
-                    NavigationLink {
-                        Text("\(pokemon.id): \(pokemon.name!.capitalized)")
-                    } label: {
-                        Text("\(pokemon.id): \(pokemon.name!.capitalized)")
+        NavigationStack {
+            List(pokedex) { pokemon in
+                //for pokedex row
+                //value - will be used later in navigationDestination
+                NavigationLink(value: pokemon) {
+                    //pokemon image
+                    AsyncImage(url: pokemon.sprite) { image in
+                        image
+                            .resizable()
+                            .scaledToFit()
+                    } placeholder: {
+                        ProgressView()
                     }
+                    .frame(width: 100, height: 100) //putting frame here instead of inside (some size issue, need to check)
+                    
+                    Text(pokemon.name!.capitalized)
                 }
             }
+            .navigationTitle("Pokedex")
+            //navigationDestination - to specify destination view (detail view) when clicked on any row from abv list 
+            .navigationDestination(for: Pokemon.self,
+                                   destination: { pokemon in
+                //destination for when clicked on a item from the list
+                AsyncImage(url: pokemon.sprite) { image in
+                    image
+                        .resizable()
+                        .scaledToFit()
+                } placeholder: {
+                    ProgressView()
+                }
+                .frame(width: 100, height: 100) //putting frame here instead of inside (some size issue, need to check)
+                
+            })
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     EditButton()
