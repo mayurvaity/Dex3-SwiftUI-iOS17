@@ -20,7 +20,7 @@ struct ContentView: View {
         NavigationStack {
             List(pokedex) { pokemon in
                 //for pokedex row
-                //value - will be used later in navigationDestination, it will be stored in Environment obj for use in Detail view, rather than passing directly to the detail view 
+                //value - will be used later in navigationDestination 
                 NavigationLink(value: pokemon) {
                     //pokemon image
                     AsyncImage(url: pokemon.sprite) { image in
@@ -40,15 +40,8 @@ struct ContentView: View {
             .navigationDestination(for: Pokemon.self,
                                    destination: { pokemon in
                 //destination for when clicked on a item from the list
-                AsyncImage(url: pokemon.sprite) { image in
-                    image
-                        .resizable()
-                        .scaledToFit()
-                } placeholder: {
-                    ProgressView()
-                }
-                .frame(width: 100, height: 100) //putting frame here instead of inside (some size issue, need to check)
-                
+                PokemonDetailView()
+                    .environmentObject(pokemon) //passing selected pokemon data as env obj 
             })
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {

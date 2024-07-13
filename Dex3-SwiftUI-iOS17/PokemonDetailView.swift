@@ -54,6 +54,15 @@ struct PokemonDetailView: View {
                 Spacer()
             }
             .padding()
+            
+            //stats views  
+            Text("Stats")
+                .font(.title)
+                .padding(.bottom, -7)
+            
+            StatsView()
+                .environmentObject(pokemon) //passing selected Pokemon value to the view, as env obj
+            
         }
         .navigationTitle(pokemon.name!.capitalized) //to add pokemon name in navigation bar
         .toolbar {
