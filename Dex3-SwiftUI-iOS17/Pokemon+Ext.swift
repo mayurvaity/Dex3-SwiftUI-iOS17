@@ -46,6 +46,17 @@ extension Pokemon {
     var highestStat: Stat {
         stats.max { $0.value < $1.value }!
     }
+    
+    func organizeTypes() {
+        //checking if a pokemon has multiple types and 1st one is "normal"
+        if self.types!.count > 1 && self.types![0] == "normal" {
+            //swapping 1st and 2nd values in types array
+//            let tempType = self.types![0]
+//            self.types![0] = self.types![1]
+//            self.types![1] = tempType
+            self.types!.swapAt(0, 1) //apple fn for this swapping process 
+        }
+    }
 }
 
 //model of stats
