@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import CoreData
 
 struct FetchController {
     //enum for errors
@@ -16,7 +17,13 @@ struct FetchController {
     private let baseURL = URL(string: "https://pokeapi.co/api/v2/pokemon/")!
     
     //fn to fetch all pokemon data 
-    func fetchAllPokemon() async throws -> [TempPokemon] {
+    //[TempPokemon]? - when we have all the pokemon in coredata db stored, we won't be fetching them again and will return nil
+    func fetchAllPokemon() async throws -> [TempPokemon]? {
+        //checking if any pokemon are stored in coredata db
+        if havePokemon() {
+            return nil
+        }
+        
         //var to store received and then decoded data
         var allPokemon: [TempPokemon] = []
         
@@ -79,5 +86,32 @@ struct FetchController {
         print("Fetched \(tempPokemon.id) : \(tempPokemon.name)")
         
         return tempPokemon
+    }
+    
+    //fn to check if have all the pokemon stored in coredata db
+    private func havePokemon() -> Bool {
+        //creating a new viewcontext obj just for this fn (not using existing viewcontext)
+        let context = PersistenceController.shared.container.newBackgroundContext()
+        
+        //creating fetch request (select statement)
+        let fetchRequest: NSFetchRequest<Pokemon> = Pokemon.fetchRequest()
+        //creating filter on abv request (to get pokemon with id 1 and 386, only checking 1st and last pokemon id) (where condition)
+        fetchRequest.predicate = NSPredicate(format: "id IN %@", [1, 386])
+        
+        do {
+            //running to check if abv requests returns any data from coredata
+            let checkPokemon = try context.fetch(fetchRequest)
+            
+            //checking returned data count, if 2 means we have both the pokemon in coredata, so returning true
+            if checkPokemon.count == 2 {
+                return true
+            }
+        } catch {
+            //if the fetching fails error will be caught here and can say we have no pokemon in coredata, so returning false
+            print("Fetch failed with error, \(error)")
+            return false
+        }
+        //by default return false
+        return false
     }
 }

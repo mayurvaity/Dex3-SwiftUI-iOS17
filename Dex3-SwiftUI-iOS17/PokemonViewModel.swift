@@ -39,7 +39,14 @@ class PokemonViewModel: ObservableObject {
         
         do {
             //calling fn and getting all pokemon data (from API)
-            var pokedex = try await controller.fetchAllPokemon()
+            guard var pokedex = try await controller.fetchAllPokemon() else {
+                //if no data has been returned from this fn, that means we already got all the data in coredata db
+                print("Pokemon have already been got. we good.")
+                //setting status as no more processing is required
+                status = .success
+                //ending this fn here
+                return
+            }
             
             //sorting
             pokedex.sort { $0.id < $1.id }
