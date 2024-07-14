@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0D0791CC2C44272100DB855C /* FetchedImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D0791CB2C44272100DB855C /* FetchedImageView.swift */; };
+		0D0791CE2C44295D00DB855C /* WidgetPokemonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D0791CD2C44295D00DB855C /* WidgetPokemonView.swift */; };
 		0D5768072C42B04D005663E5 /* PokemonDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D5768062C42B04D005663E5 /* PokemonDetailView.swift */; };
 		0D95D4AD2C4053E700CFDBBE /* FetchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D95D4AC2C4053E700CFDBBE /* FetchController.swift */; };
 		0D97C33B2C40354700C9C3FF /* TempPokemon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D97C33A2C40354700C9C3FF /* TempPokemon.swift */; };
@@ -23,6 +25,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0D0791CB2C44272100DB855C /* FetchedImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchedImageView.swift; sourceTree = "<group>"; };
+		0D0791CD2C44295D00DB855C /* WidgetPokemonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetPokemonView.swift; sourceTree = "<group>"; };
 		0D5768062C42B04D005663E5 /* PokemonDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonDetailView.swift; sourceTree = "<group>"; };
 		0D95D4AC2C4053E700CFDBBE /* FetchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchController.swift; sourceTree = "<group>"; };
 		0D97C33A2C40354700C9C3FF /* TempPokemon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempPokemon.swift; sourceTree = "<group>"; };
@@ -73,6 +77,8 @@
 				0DD85F8D2C3EEF40007ECFC6 /* ContentView.swift */,
 				0D5768062C42B04D005663E5 /* PokemonDetailView.swift */,
 				0DB336F62C430E1E0083FB10 /* StatsView.swift */,
+				0D0791CD2C44295D00DB855C /* WidgetPokemonView.swift */,
+				0D0791CB2C44272100DB855C /* FetchedImageView.swift */,
 				0DCD7D7E2C42B46900F562FB /* SamplePokemon.swift */,
 				0D97C33A2C40354700C9C3FF /* TempPokemon.swift */,
 				0D95D4AC2C4053E700CFDBBE /* FetchController.swift */,
@@ -167,9 +173,11 @@
 				0DB336F72C430E1E0083FB10 /* StatsView.swift in Sources */,
 				0DD85F952C3EEF41007ECFC6 /* Persistence.swift in Sources */,
 				0D5768072C42B04D005663E5 /* PokemonDetailView.swift in Sources */,
+				0D0791CE2C44295D00DB855C /* WidgetPokemonView.swift in Sources */,
 				0DD85F8E2C3EEF40007ECFC6 /* ContentView.swift in Sources */,
 				0DCD7D812C42BF0600F562FB /* Pokemon+Ext.swift in Sources */,
 				0D95D4AD2C4053E700CFDBBE /* FetchController.swift in Sources */,
+				0D0791CC2C44272100DB855C /* FetchedImageView.swift in Sources */,
 				0DCD7D7F2C42B46900F562FB /* SamplePokemon.swift in Sources */,
 				0D9A73382C41C9EF00143454 /* PokemonViewModel.swift in Sources */,
 				0D97C33B2C40354700C9C3FF /* TempPokemon.swift in Sources */,
