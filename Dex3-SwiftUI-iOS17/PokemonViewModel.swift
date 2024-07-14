@@ -69,7 +69,7 @@ class PokemonViewModel: ObservableObject {
                 newPokemon.speed = Int16(pokemon.speed)
                 newPokemon.sprite = pokemon.sprite
                 newPokemon.shiny = pokemon.shiny
-                newPokemon.favorite = false
+                newPokemon.favorite = false 
                 
                 //saving abv pokemon into coredata db
                 try PersistenceController.shared.container.viewContext.save()

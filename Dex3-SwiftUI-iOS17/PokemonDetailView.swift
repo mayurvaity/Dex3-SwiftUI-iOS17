@@ -9,6 +9,9 @@ import SwiftUI
 import CoreData
 
 struct PokemonDetailView: View {
+    //viewContext to make changes to data in coredata
+    @Environment(\.managedObjectContext) private var viewContext
+    
     //to get selected pokemon data stored in Environment
     @EnvironmentObject var pokemon: Pokemon
     
@@ -52,6 +55,26 @@ struct PokemonDetailView: View {
                 
                 //to align all the types to the left
                 Spacer()
+                
+                //add to favorites button
+                Button {
+                    withAnimation {
+                        //to change fav property of selected pokemon
+                        pokemon.favorite.toggle()
+                        
+                        //code to save changes made abv 
+                        do {
+                            try viewContext.save()
+                        } catch {
+                            let nsError = error as NSError
+                            fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
+                        }
+                    }
+                } label: {
+                    Image(systemName: pokemon.favorite ? "star.fill" : "star")
+                }
+                .font(.largeTitle)
+                .foregroundStyle(.yellow)
             }
             .padding()
             

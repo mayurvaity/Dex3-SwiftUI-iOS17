@@ -9,12 +9,21 @@ import SwiftUI
 import CoreData
 
 struct ContentView: View {
-    @Environment(\.managedObjectContext) private var viewContext
-    
+    //fetch request (with sort) for all pokemon data from coredata
     @FetchRequest(
         sortDescriptors: [NSSortDescriptor(keyPath: \Pokemon.id, ascending: true)],
-        animation: .default)
-    private var pokedex: FetchedResults<Pokemon>
+        animation: .default
+    ) private var pokedex: FetchedResults<Pokemon>
+    
+    //creating fetch request, sorting & filtering data and keeping it in "favorites" var, for use when favorites filter is applied
+    @FetchRequest(
+        sortDescriptors: [NSSortDescriptor(keyPath: \Pokemon.id, ascending: true)],
+        predicate: NSPredicate(format: "favorite = %d", true),
+        animation: .default
+    ) private var favorites: FetchedResults<Pokemon>
+    
+    //var to keep value of if applied favorites filter
+    @State private var filterByFavorites = false
     
     //creating pokemon viemodel using new fetchController obj
     @StateObject private var pokemonVM = PokemonViewModel(controller: FetchController())
@@ -25,7 +34,8 @@ struct ContentView: View {
         //when success - to show list of pokemons
         case .success:
             NavigationStack {
-                List(pokedex) { pokemon in
+                //depending on favorites filter (if selected or not) switching btween datasets obtained from coredata db
+                List(filterByFavorites ? favorites : pokedex) { pokemon in
                     //for pokedex row
                     //value - will be used later in navigationDestination
                     NavigationLink(value: pokemon) {
@@ -40,6 +50,11 @@ struct ContentView: View {
                         .frame(width: 100, height: 100) //putting frame here instead of inside (some size issue, need to check)
                         
                         Text(pokemon.name!.capitalized)
+                        
+                        if pokemon.favorite {
+                            Image(systemName: "star.fill")
+                                .foregroundStyle(.yellow)
+                        }
                     }
                 }
                 .navigationTitle("Pokedex")
@@ -51,8 +66,20 @@ struct ContentView: View {
                         .environmentObject(pokemon) //passing selected pokemon data as env obj
                 })
                 .toolbar {
+                    //button to filter favorites at top right corner
                     ToolbarItem(placement: .navigationBarTrailing) {
-                        EditButton()
+                        Button {
+                            //changing filter property when button pressed
+                            withAnimation {
+                                filterByFavorites.toggle()
+                            }
+                        } label: {
+                            Label("Filter By Favorites",
+                                  systemImage: filterByFavorites ? "star.fill" : "star")
+                        }
+                        .font(.title)
+                        .foregroundStyle(.yellow)
+                        
                     }
                 }
             }
